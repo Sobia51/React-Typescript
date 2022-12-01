@@ -4,6 +4,7 @@ import Header from './components/Header';
 import {Note} from './models/note.modal';
 import Noteslist from "./components/Noteslist";
 import {Col,Row,Container} from "react-bootstrap";
+import Createnotes from"./components/Createnotes";
 function App() {
   const [notes, setnotes] = useState<Note[]>([
     {
@@ -20,7 +21,12 @@ function App() {
    <Container className="mt-5">
     <Row>
       <Col>
-      <Noteslist note= {notes}/>
+      <Noteslist notes= {notes} setnotes={setnotes}/>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+      <Createnotes notes= {notes} setnotes={setnotes}/>
       </Col>
     </Row>
    </Container>

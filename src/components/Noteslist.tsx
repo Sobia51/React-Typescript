@@ -3,14 +3,20 @@ import Notes from "./Notes";
 import {Note} from "../models/note.modal";
 
 interface INoteslistProps {
-    note:Note[]
+    notes:Note[]
+    setnotes:React.Dispatch<React.SetStateAction<Note[]>>
 }
 
-const Noteslist: React.FC<INoteslistProps> = ({note}) => {
-  const renderNotes =()=>{
-   return note.map(note =>
+
+const Noteslist: React.FC<INoteslistProps> = ({notes , setnotes}) => {
+  const handleDelete  =(id:string)=>{
+    setnotes(notes.filter(note=>note.id !==id));
+
+  };
+  const renderNotes =():JSX.Element[] =>{
+   return notes.map(note =>
     {
-return <Notes key={note.id} note={note}/>
+return <Notes key={note.id} note={note} handleDelete={handleDelete}/>
     })
   }
   return (
