@@ -7,7 +7,7 @@ export default function Header({}: HeaderProps) {
     <Navbar bg="dark" variant="dark">
     <Container>
       <Navbar.Brand>
-      Notes 
+      NEW NOTES
       </Navbar.Brand>
     </Container>
   </Navbar>
